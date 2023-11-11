@@ -11,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "api/productos")
 public class ProductoController extends BaseControllerImpl<Producto, ProductoServiceImpl> {
     @Autowired

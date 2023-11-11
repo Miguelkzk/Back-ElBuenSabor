@@ -3,6 +3,7 @@ package com.tup.buensabor;
 import com.tup.buensabor.entities.*;
 import com.tup.buensabor.enums.EstadoPedido;
 import com.tup.buensabor.enums.FormaPago;
+import com.tup.buensabor.enums.Role;
 import com.tup.buensabor.enums.TipoEnvio;
 import com.tup.buensabor.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -42,6 +44,14 @@ public class BuensaborApplication {
 	ProductoRepository productoRepository;
 	@Autowired
 	LocalidadRepository localidadRepository;
+	@Autowired
+	UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
+
+	public BuensaborApplication(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(
 				BuensaborApplication.class, args);
@@ -197,6 +207,15 @@ public class BuensaborApplication {
 				.fechaBaja(date)
 				.fechaModificacion(date)
 				.build();
+
+		//creacion del admin
+			User admin = User.builder()
+					.username("Admin")
+					.password(passwordEncoder.encode("admin"))
+					.role(Role.ADMIN)
+					.build();
+
+			userRepository.save(admin);
 
 			articuloInsumo.setCategoriaArticulo(categoriaArticulo);
 			cliente.setUsuario(usuario);
