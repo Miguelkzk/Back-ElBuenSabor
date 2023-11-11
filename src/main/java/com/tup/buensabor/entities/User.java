@@ -26,6 +26,9 @@ public class User extends Base implements UserDetails {
     @Enumerated(EnumType.STRING)
     Role role;
 
+    @OneToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority((role.name())));
