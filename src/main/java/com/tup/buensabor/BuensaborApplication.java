@@ -101,6 +101,7 @@ public class BuensaborApplication {
 				.stockMinimo(decimal2)
 				.build();
 
+		//Cargo un par de productos para no cargarlos cada vez
 		Producto producto = Producto.builder()
 				.costo(decimal1)
 				.precioVenta(decimal3)
@@ -108,13 +109,70 @@ public class BuensaborApplication {
 				.fechaAlta(date)
 				.fechaBaja(date)
 				.fechaModificacion(date)
-				.urlImagen("https://brandemia.org/contenido/subidas/2022/02/000-river-plate.jpg")
+				.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$ksX5rs2H/200/200/original?country=ar")
 				.descripcion("Inigualable pan con semillas de sésamo, tres medallones de carne 100% vacuna, tres fetas de nuestro exclusivo Queso Cheddar, cebolla, lechuga y tomate frescos. Sumado a estos ingredientes la única e inigualable Salsa Tasty")
-				.denominacion("Hamburguesa Tasty").
+				.denominacion("Grand Tasty Turbo Bacon Triple").
 				build();
+			Producto producto1 = Producto.builder()
+					.costo(decimal1)
+					.precioVenta(decimal3)
+					.tiempoEstimadoCocina(45)
+					.fechaAlta(date)
+					.fechaBaja(date)
+					.fechaModificacion(date)
+					.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kqX3vl0y/200/200/original?country=ar")
+					.descripcion("Quizás sean las dos hamburguesas de carne 100% vacuna con esa salsa especial y queso derretido, el toque de cebolla y la frescura de la lechuga o el crocante del pepino, lo que la hace la hamburguesa más famosa del mundo. Un sabor único.")
+					.denominacion("Big Mac").
+					build();
+			Producto producto2= Producto.builder()
+					.costo(decimal1)
+					.precioVenta(decimal3)
+					.tiempoEstimadoCocina(45)
+					.fechaAlta(date)
+					.fechaBaja(date)
+					.fechaModificacion(date)
+					.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$krXm2g5T/200/200/original?country=ar")
+					.denominacion("Doble Carne Doble Queso")
+					.descripcion("Hamburguesa elaborada con dos medallones de carne 100% de carne vacuna y dos fetas de nuestro exclusivo Queso Cheddar.")
+					.build();
+			Producto producto3 = Producto.builder()
+					.costo(decimal1)
+					.precioVenta(decimal3)
+					.tiempoEstimadoCocina(45)
+					.fechaAlta(date)
+					.fechaBaja(date)
+					.fechaModificacion(date)
+					.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kqXsCqnz/200/200/original?country=ar")
+					.descripcion("Tres medallones de carne 100% vacuna, queso derretido, mostaza, kétchup y cebolla triturada, es algo que nunca puede fallar.")
+					.denominacion("Triple Hamburguesa con Queso")
+					.build();
+			Producto producto4 = Producto.builder()
+					.costo(decimal1)
+					.precioVenta(decimal3)
+					.tiempoEstimadoCocina(45)
+					.fechaAlta(date)
+					.fechaBaja(date)
+					.fechaModificacion(date)
+					.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kqXt7Sq2/200/200/original?country=ar")
+					.descripcion("maginá la sensación del clásico Cuarto de Libra. Imaginalo con un medallón de deliciosa carne 100% vacuna, queso cheddar, cebolla, kétchup y mostaza ¿Listo? Ahora duplicá esa sensación. Ya tenés el Doble Cuarto en la cabeza.")
+					.denominacion("Doble Cuarto de Libra con Queso")
+					.build();
+			Producto producto5 = Producto.builder()
+					.costo(decimal1)
+					.precioVenta(decimal3)
+					.tiempoEstimadoCocina(45)
+					.fechaAlta(date)
+					.fechaBaja(date)
+					.fechaModificacion(date)
+					.urlImagen("https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kQX3BMhy/200/200/original?country=ar")
+					.descripcion("Tres carnes, inigualable queso cheddar, cebolla, kétchup y mostaza, y el increíble ingrediente que lo hace único: bacon premium.")
+					.denominacion("Grand Triple McBacon")
+					.build();
 
 
-		DetalleProducto detalleProducto = DetalleProducto.builder()
+
+
+			DetalleProducto detalleProducto = DetalleProducto.builder()
 				.cantidad(decimal2)
 				.build();
 
@@ -246,6 +304,11 @@ public class BuensaborApplication {
 			pedidoRepository.save(pedido1);
 			facturaRepository.save(factura);
 			productoRepository.save(producto);
+			productoRepository.save(producto1);
+			productoRepository.save(producto2);
+			productoRepository.save(producto3);
+			productoRepository.save(producto4);
+			productoRepository.save(producto5);
 			detallePedidoRepository.save(detallePedido);
 			facturaRepository.save(factura1);
 			detalleFacturaRepository.save(detalleFactura);
