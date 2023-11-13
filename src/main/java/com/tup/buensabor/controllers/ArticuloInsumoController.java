@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/articulos")
+@RequestMapping(path = "api/articulos")
 public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo, ArticuloInsumoImpl> {
     @GetMapping("/searchbyalta")
     public ResponseEntity<?> searchbyalta(Pageable pageable) {
