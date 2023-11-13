@@ -19,28 +19,28 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     ArticuloInsumoImpl articuloInsumo;
 
     @GetMapping(value = "/all")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLEADO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
     public ResponseEntity<?> getAllArticuloInsumos(){ return getAll();}
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLEADO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
     public ResponseEntity<?> getOne(@PathVariable Long id){
         return super.getOne(id);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLEADO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
     public ResponseEntity<?> delete(@PathVariable Long id){
         return super.delete(id);
     }
 
     @PostMapping(value = "/create")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLEADO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
     public ResponseEntity<?> saveArticuloInsumo(@RequestBody ArticuloInsumo entity){
         return save(entity);
     }
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLEADO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ArticuloInsumo entity) {
         return super.update(id, entity);
     }
