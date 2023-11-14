@@ -13,12 +13,12 @@ import java.util.List;
 
 @Repository
 public interface ProductoRepository extends BaseRepository<Producto, Long> {
-
+        //buscar producto segun su nombre
     @Query(
             value = "SELECT * FROM Producto WHERE Producto.denominacion LIKE %:filtro%",
             nativeQuery = true
     )
-    Page<Producto> searchbynombre(@Param("filtro")String filtro, Pageable pageable);
+    List<Producto> searchbynombre(@Param("filtro")String filtro);
 
     @Query("SELECT new com.tup.buensabor.DTO.RankingProductoDto(dp.producto.denominacion, SUM(dp.cantidad)) FROM DetallePedido dp " +
             "WHERE dp.pedido.fechaPedido BETWEEN :fechaDesde AND :fechaHasta " +

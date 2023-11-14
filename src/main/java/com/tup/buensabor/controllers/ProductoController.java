@@ -42,9 +42,9 @@ public class ProductoController extends BaseControllerImpl<Producto, ProductoSer
     }
 
     @GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam String filtro) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro,pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

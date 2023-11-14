@@ -9,6 +9,6 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ProductoService extends BaseService<Producto,Long> {
-    Page<Producto> search(String filtro, Pageable pageable) throws Exception;
+    List <Producto> search(String filtro) throws Exception;
     public List<RankingProductoDto> traerRankingProductos(BuscarEntreFechasDTO buscarEntreFechasDTO) throws Exception;
 }

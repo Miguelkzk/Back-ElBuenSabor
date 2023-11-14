@@ -22,9 +22,9 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto,Long> implemen
     }
 
     @Override
-    public Page<Producto> search(String filtro, Pageable pageable) throws Exception {
+    public List<Producto> search(String filtro) throws Exception {
         try{
-            Page<Producto> productos=productoRepository.searchbynombre(filtro,pageable);
+            List <Producto> productos= (List<Producto>) productoRepository.searchbynombre(filtro);
             return productos;
         }catch (Exception e){
             throw new Exception((e.getMessage()));
