@@ -13,7 +13,7 @@ import java.util.Date;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/clientes")
+@RequestMapping(path = "/api/clientes")
 public class ClienteController extends BaseControllerImpl<Cliente, ClienteServiceImpl> {
 
     @GetMapping("/searchRanking")
@@ -49,5 +49,33 @@ public class ClienteController extends BaseControllerImpl<Cliente, ClienteServic
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
+    }
+    @GetMapping(value = "/all")
+    public ResponseEntity<?> getAll() {
+        return super.getAll();
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getOne(Long id) {
+        return super.getOne(id);
+    }
+
+
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> save(Cliente entity) {
+        return super.save(entity);
+    }
+
+
+    @PutMapping("{id}")
+    public ResponseEntity<?> update(Long id, Cliente entity) {
+        return super.update(id, entity);
+    }
+
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(Long id) {
+        return super.delete(id);
     }
 }
