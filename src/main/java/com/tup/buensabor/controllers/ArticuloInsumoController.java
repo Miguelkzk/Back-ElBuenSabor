@@ -17,7 +17,7 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
     ArticuloInsumoImpl articuloInsumo;
 
     @GetMapping(value = "/all")
-    //@PreAuthorize("hasAnyAuthority('ADMIN', 'EMPLEADO')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> getAllArticuloInsumos(){ return getAll();}
 
     @GetMapping("/{id}")
