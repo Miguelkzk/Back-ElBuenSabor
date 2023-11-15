@@ -5,6 +5,7 @@ import com.tup.buensabor.servicies.CategoriaArticuloServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "api/categorias")
 
 public class CategoriaArticuloController extends BaseControllerImpl<CategoriaArticulo, CategoriaArticuloServiceImpl> {
-
+    @GetMapping(value = "/all")
+   // @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<?> getAllCategoria(){
+        return getAll();
+    }
     @GetMapping("/searchbyalta")
     public ResponseEntity<?> searchbyalta(Pageable pageable) {
         try {
