@@ -276,7 +276,7 @@ public class BuensaborApplication {
 			userRepository.save(admin);
 
 			articuloInsumo.setCategoriaArticulo(categoriaArticulo);
-			cliente.setUsuario(usuario);
+			//cliente.setUsuario(usuario);
 			pedido.setCliente(cliente);
 			pedido.setDomicilioEntrega(domicilio);
 			factura.setPedido(pedido);
