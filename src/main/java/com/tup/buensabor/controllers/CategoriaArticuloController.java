@@ -30,4 +30,33 @@ public class CategoriaArticuloController extends BaseControllerImpl<CategoriaArt
         }
     }
 
+    public ResponseEntity<?> getAll() {
+        return super.getAll();
+    }
+
+
+    public ResponseEntity<?> getAll(Pageable pageable) {
+        return super.getAll(pageable);
+    }
+
+
+    public ResponseEntity<?> getOne(Long id) {
+        return super.getOne(id);
+    }
+
+
+    public ResponseEntity<?> save(CategoriaArticulo entity) {
+        return super.save(entity);
+    }
+
+
+    public ResponseEntity<?> update(Long id, CategoriaArticulo entity) {
+        return super.update(id, entity);
+    }
+
+
+    public ResponseEntity<?> delete(Long id) {
+        return super.delete(id);
+    }
+
 }
