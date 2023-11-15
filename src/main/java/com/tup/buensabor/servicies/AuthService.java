@@ -31,10 +31,13 @@ public class AuthService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
         String token=jwtService.getToken(user);
+        String role= user.getAuthorities().iterator().next().getAuthority();
         return AuthResponse.builder()
                 .token(token)
+                .role(role)
                 .build();
     }
+
     public AuthResponse register(RegisterRequest request){
         User user=User.builder()
                 .username(request.getUsername())
